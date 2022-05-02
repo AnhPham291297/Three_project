@@ -1,0 +1,134 @@
+// css navigator (Menu)
+
+.navmobile {
+  display: none;
+}
+
+@include sm {
+  html {
+    font-size: 60%;
+  }
+  .navmobile {
+    --heightHeader: 120px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--heightHeader);
+    z-index: 10;
+    @include transition($t);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.sticky {
+      background: $title;
+      padding: 10px 0;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+
+      .logo-mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+          display: block;
+        }
+
+        .logo-mobile-1 {
+          width: 60px;
+          margin-bottom: 10px;
+
+          @include sm {
+            width: 50px;
+          }
+        }
+
+        .logo-mobile-2 {
+          width: 60px;
+
+          @include sm {
+            width: 50px;
+          }
+        }
+      }
+
+      .nav-moible-list {
+        position: fixed;
+        top: var(--heightHeader);
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #230a4a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding-bottom: var(--heightHeader);
+        transform: translateX(-100%);
+        @include transition($t);
+
+        &.active {
+          transform: translateX(0);
+        }
+
+        .nav-moible-link {
+          display: inline-block;
+          margin: 50px 0;
+          @include text(3rem, muli, normal, $white-cl, uppercase);
+          // text($font-size, $font-family, $line-height, $color, $text-transform)
+          letter-spacing: 6.4px;
+          font-weight: 900;
+          position: relative;
+
+          &.active,
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 0%;
+            height: 2px;
+            background: $green-cl;
+            @include transition($t);
+          }
+
+          &:hover::after {
+            width: 100%;
+          }
+        }
+      }
+
+      .hamburger {
+        cursor: pointer;
+
+        .bar {
+          display: block;
+          width: 30px;
+          height: 3px;
+          background: $green-cl;
+          margin: 10px 0;
+          @include transition($t);
+        }
+      }
+
+      .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active .bar:nth-child(1) {
+        transform: translateY(20px) rotate(45deg);
+      }
+
+      .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-5px) rotate(-45deg);
+      }
+    }
+  }
+}

@@ -1,0 +1,146 @@
+// css footer
+footer {
+  background: url(../../../img/hero-bg.jpg);
+  position: relative;
+
+  .footer__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    position: relative;
+    z-index: 2;
+
+    @include md {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+
+    @include sm {
+      padding-top: 90px;
+      padding-bottom: 90px;
+    }
+
+    @include xxs {
+      width: 100vw;
+      height: 70vh;
+    }
+
+    hr {
+      width: 100%;
+      border-style: inset;
+      border-width: 1px;
+      margin: 50px 0;
+
+      @include xxs {
+        width: 80%;
+      }
+    }
+
+    .footer__top {
+      ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @include xxs {
+          // flex-wrap: wrap;
+        }
+
+        li {
+          margin: 0 30px;
+          cursor: pointer;
+
+          @include xxs {
+            margin: 0 15px;
+          }
+
+          i {
+            font-size: 3rem;
+            color: $white-cl;
+            @include transition($t);
+
+            &:hover {
+              color: $green-cl;
+            }
+          }
+        }
+      }
+    }
+
+    .footer-middle {
+      .nav-list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+
+        @include xxs {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .nav-link {
+          display: inline-block;
+          margin: 0 20px;
+          @include text(1rem, muli, normal, $white-cl, uppercase);
+          // text($font-size, $font-family, $line-height, $color, $text-transform)
+          letter-spacing: 6.4px;
+          font-weight: 900;
+          position: relative;
+
+          @include xxs {
+            margin: 10px;
+          }
+
+          &.active,
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 0%;
+            height: 2px;
+            background: $green-cl;
+            @include transition($t);
+          }
+
+          &:hover::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .footer-bottom {
+      @include xxs {
+        max-width: 90%;
+        margin: 0 auto;
+      }
+      p {
+        text-align: center;
+        // max-width: 550px;
+        // margin: 0 auto;
+        @include text(1.6rem, muli, 1.6, #ffffff, normal);
+      }
+    }
+  }
+}

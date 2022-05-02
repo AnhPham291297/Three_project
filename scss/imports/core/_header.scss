@@ -1,0 +1,81 @@
+// css header
+
+header {
+  --heightHeader: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--heightHeader) 0;
+  z-index: 100;
+  @include transition($t);
+
+  &.sticky {
+    background: $title;
+    padding: 10px 0;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+
+    .nav-list {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+
+      .nav-link {
+        display: inline-block;
+        margin: 0 30px;
+        @include text(1rem, muli, normal, $white-cl, uppercase);
+        // text($font-size, $font-family, $line-height, $color, $text-transform)
+        letter-spacing: 6.4px;
+        font-weight: 900;
+        position: relative;
+
+        &.active,
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -10px;
+          width: 0%;
+          height: 2px;
+          background: $green-cl;
+          @include transition($t);
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+      }
+
+      .logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+          display: block;
+        }
+
+        .logo_1 {
+          width: 57px;
+          margin-bottom: 15px;
+        }
+
+        .logo_2 {
+          width: 57px;
+        }
+      }
+    }
+  }
+
+  @include sm {
+    display: none;
+  }
+}

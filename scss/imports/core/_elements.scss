@@ -1,0 +1,74 @@
+.heading-primary {
+  @include text(8rem, muli-bl, normal, $white-cl, uppercase);
+  // text($font-size, $font-family, $line-height, $color, $text-transform)
+  letter-spacing: 40px;
+  font-weight: 900;
+
+  @include sm {
+    font-size: 6rem;
+    letter-spacing: 20px;
+  }
+
+  @include xxs {
+    font-size: 5rem;
+    letter-spacing: 10px;
+  }
+}
+
+.heading-secondary {
+  @include text(4rem, pfd-bold, normal, $title, uppercase);
+}
+
+.heading-tertiary {
+  @include text(4rem, muli-bl, normal, $title, uppercase);
+  letter-spacing: 8px;
+
+  span {
+    font-size: 8rem;
+    font-family: pfd-bl;
+    letter-spacing: normal;
+  }
+
+  @include md {
+    font-size: 3rem;
+
+    span {
+      font-size: 7rem;
+    }
+  }
+
+  @include sm {
+    font-size: 2rem;
+
+    span {
+      font-size: 6rem;
+    }
+  }
+}
+
+.title {
+  @include text(1.3rem, muli-bl, normal, $green-cl, uppercase);
+  letter-spacing: 4px;
+}
+
+.description {
+  @include text(1.6rem, muli, 1.6, $text-cl, normal);
+}
+
+.btnmain {
+  display: inline-block;
+  border: 3px solid $green-cl;
+  padding: 12px 14px;
+  @include text(1.3rem, muli-bl, normal, $title, uppercase);
+  letter-spacing: 2px;
+  position: relative;
+  cursor: pointer;
+  transform: scale(1);
+  @include transition($t);
+
+  &:hover {
+    transform: scale(1.2);
+    background: $blue-cl;
+    @include transition($t);
+  }
+}

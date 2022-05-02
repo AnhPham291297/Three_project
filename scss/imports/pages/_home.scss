@@ -1,0 +1,691 @@
+// CSS HOMEPAGE
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: $green-cl;
+  border-radius: 20px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #dedede;
+}
+
+.hero {
+  // background: url(../../../img/BG@2x.jpg) no-repeat center center/cover;
+  width: 100%;
+  height: 1050px;
+  position: relative;
+
+  @include md {
+    height: 100vh;
+  }
+
+  @include sm {
+    height: 60vh;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .hero-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+}
+
+.featured {
+  padding: 150px 0;
+  background: #eee;
+  @include sm {
+    padding-top: 0;
+    padding-bottom: 90px;
+  }
+
+  .featured-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    @include sm {
+      flex-direction: column-reverse;
+    }
+
+    .featured__slider {
+      // width: 100%;
+      width: calc(#{$container-width} + (100vw - #{$container-width}) / 2);
+      margin-left: auto;
+
+      @include sm {
+        width: 100%;
+      }
+
+      // --container-width: ..;
+      .featured__top {
+        position: relative;
+        display: flex;
+        width: 100%;
+
+        @include sm {
+          flex-direction: column;
+        }
+
+        &-content {
+          width: 40%;
+          padding: 100px;
+          background: $white-cl;
+
+          h4 {
+            margin-top: 40px;
+            margin-bottom: 40px;
+          }
+
+          p {
+            margin-bottom: 40px;
+          }
+
+          .item {
+            h5 {
+              @include text(1.3rem, muli-bl, normal, $title, uppercase);
+              letter-spacing: 4px;
+              margin-bottom: 10px;
+            }
+          }
+
+          @include sm {
+            width: 100%;
+            padding: 50px;
+
+            h4 {
+              margin-top: 20px;
+              margin-bottom: 20px;
+            }
+
+            p {
+              margin-bottom: 20px;
+            }
+          }
+        }
+
+        &-img {
+          width: 60%;
+          // height: 100%;
+
+          @include sm {
+            width: 100%;
+            height: 350px;
+          }
+          img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+
+    .featured-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-left: 5%;
+
+      @include md {
+        margin-left: 0;
+      }
+
+      @include sm {
+        flex-direction: row-reverse;
+        margin-top: 20px;
+      }
+
+      .next {
+        margin-bottom: 20px;
+
+        @include sm {
+          margin-bottom: 0;
+          margin-left: 40px;
+        }
+      }
+
+      img {
+        width: 22px;
+      }
+    }
+  }
+
+  .featured__bottom {
+    margin-top: 150px;
+
+    @include sm {
+      margin-top: 90px;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+
+      @include xxs {
+        flex-direction: column;
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+
+      .featured__bottom-img {
+        img {
+          width: 2px;
+        }
+
+        @include xxs {
+          display: none;
+        }
+      }
+
+      h3 {
+        width: 50%;
+
+        @include xxs {
+          width: 100%;
+        }
+      }
+
+      p {
+        width: 40%;
+
+        @include xxs {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  img {
+    display: block;
+    height: 100%;
+  }
+
+  .image:nth-child(6) {
+    position: relative;
+
+    div {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      p {
+        @include text(4rem, pfd-bl, normal, $white-cl, uppercase);
+      }
+    }
+  }
+}
+
+.about {
+  padding: 150px 0;
+  background: #eee;
+
+  @include sm {
+    padding: 90px 0;
+  }
+
+  .about-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    @include md {
+      flex-direction: column;
+    }
+
+    .about__top {
+      position: relative;
+      display: flex;
+      // width: 1320px;
+      width: calc(#{$container-width} + (100vw - #{$container-width}) / 2);
+      margin-right: auto;
+      // align-items: center;
+      max-width: 100%;
+
+      @include sm {
+        width: 100%;
+        flex-direction: column-reverse;
+      }
+
+      &-content {
+        width: 40%;
+        padding: 100px;
+        background: $white-cl;
+        display: flex;
+        // align-items: center;
+        // justify-content: center;
+        flex-direction: column;
+
+        .item {
+          &:not(:last-child) {
+            margin-bottom: 40px;
+
+            @include sm {
+              margin-bottom: 20px;
+            }
+          }
+
+          h5 {
+            @include text(1.3rem, muli-bl, normal, $title, uppercase);
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+          }
+        }
+
+        @include sm {
+          width: 100%;
+          padding: 50px;
+        }
+      }
+
+      &-img {
+        img {
+          display: block;
+          height: 100%;
+          object-fit: cover;
+
+          @include sm {
+            width: 100%;
+          }
+        }
+
+        @include sm {
+          width: 100%;
+          height: 350px;
+        }
+      }
+    }
+
+    .about-btn {
+      // display: flex;
+      // align-items: center;
+      // justify-content: center;
+      transform: rotate(270deg);
+      margin-right: 25px;
+
+      a {
+        width: max-content;
+      }
+
+      @include md {
+        transform: rotate(0);
+        margin-top: 50px;
+      }
+    }
+  }
+
+  .about__bottom {
+    margin-top: 150px;
+
+    @include sm {
+      margin-top: 90px;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-left: auto;
+
+      @include xxs {
+        flex-direction: column;
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+
+      .about__bottom-img {
+        img {
+          width: 2px;
+        }
+
+        @include xxs {
+          display: none;
+        }
+      }
+
+      h3 {
+        width: 50%;
+
+        @include xxs {
+          width: 100%;
+        }
+      }
+
+      p {
+        width: 40%;
+
+        @include xxs {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.team {
+  padding-bottom: 150px;
+  background: #eee;
+  position: relative;
+
+  @include sm {
+    padding-bottom: 90px;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    @include xs {
+      flex-direction: column;
+    }
+    @include xxs {
+      width: 100vw;
+    }
+    .team__item {
+      height: 370px;
+      width: 100%;
+
+      @include sm {
+        width: 80%;
+        height: 400px;
+      }
+
+      .flickity-viewport {
+        height: 100% !important;
+      }
+
+      .flickity-slider {
+        width: 100%;
+        height: 100%;
+      }
+
+      &-img {
+        width: calc(100% / 3);
+        height: 100%;
+        position: relative;
+        @include sm {
+          width: 100%;
+        }
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        &:hover .text {
+          top: 0;
+        }
+
+        &:hover .border {
+          border: 1px solid $green-cl;
+        }
+
+        .border {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 268px;
+          height: 268px;
+          z-index: 6;
+          border: 0;
+
+          @include sm {
+            display: none;
+          }
+        }
+
+        .text {
+          position: absolute;
+          top: -100%;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(19, 60, 5, 0.9);
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          z-index: 5;
+          @include transition($t);
+
+          span:nth-child(1) {
+            font-size: 1.5rem;
+          }
+
+          span:nth-child(2) {
+            @include text(3rem, pfd-bold, normal, $white-cl, uppercase);
+          }
+
+          ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            li {
+              margin: 10px;
+              font-size: 18px;
+              color: $green-cl;
+              cursor: pointer;
+              @include transition($t);
+
+              &:hover {
+                color: $white-cl;
+                transform: scale(1.2);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .team-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-left: 5%;
+
+    @include sm {
+      margin-left: 10%;
+    }
+
+    @include xs {
+      flex-direction: row;
+      margin-left: 0;
+      margin-top: 30px;
+    }
+
+    img {
+      width: 27px;
+    }
+  }
+}
+
+.contact {
+  padding-bottom: 150px;
+  background: #eee;
+
+  @include sm {
+    padding-bottom: 90px;
+  }
+
+  .contact__container {
+    position: relative;
+    display: flex;
+    // width: 1320px;
+    width: calc(#{$container-width} + (100vw - #{$container-width}) / 2);
+    margin-left: auto;
+
+    @include sm {
+      width: 100%;
+      flex-direction: column;
+    }
+
+    &-content {
+      width: 40%;
+      padding: 100px;
+      background: $white-cl;
+
+      @include sm {
+        width: 100%;
+        padding: 50px;
+      }
+
+      p {
+        margin-top: 40px;
+        margin-bottom: 40px;
+
+        span {
+          @include text(1.3rem, muli-bl, normal, $title, uppercase);
+          letter-spacing: 4px;
+        }
+      }
+    }
+
+    &-img {
+      width: 60%;
+      // height: 100%;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      @include transition($t);
+
+      @include sm {
+        width: 100%;
+      }
+
+      img {
+        display: block;
+        height: 100%;
+        object-fit: cover;
+        @include transition($t);
+
+        @include sm {
+          width: 100%;
+        }
+      }
+
+      .map_2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        z-index: 1;
+      }
+
+      .arrow-map {
+        height: 48px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        opacity: 0;
+
+        @include sm {
+          width: 35px;
+        }
+      }
+
+      &:hover > .map_1 {
+        opacity: 0;
+      }
+
+      &:hover > .map_2,
+      &:hover > .arrow-map {
+        opacity: 1;
+      }
+
+      .map-address {
+        position: absolute;
+        bottom: 100px;
+        left: 100px;
+        z-index: 3;
+        max-width: 200px;
+
+        p {
+          color: $white-cl;
+          font-family: muli;
+        }
+      }
+    }
+  }
+}
+
+#progressbar-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 5px;
+  background: $green-cl;
+  z-index: 1000;
+}
+
+#scroll-top {
+  background: $green-cl;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  color: $white-cl;
+  position: fixed;
+  top: 120%;
+  right: 25px;
+  z-index: 100;
+  @include transition($t);
+
+  &.is-active {
+    top: calc(100% - 12rem);
+  }
+}
+
+@include sm {
+  html {
+    font-size: 55%;
+  }
+}
+
+@include xxs {
+  html {
+    font-size: 50%;
+  }
+}
